@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: msclients
+
+server:
+  port: 0 #definir a porta 0 faz com que suba em uma porta randomica
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka #quero dizer em qual servidor eureka eu quero me registrar
+  instance:
+    hostname: localhost
+    prefer-ip-address: false
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}} #referenciando primeira linha
+
